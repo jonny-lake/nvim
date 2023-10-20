@@ -22,8 +22,8 @@ vim.keymap.set('n', '<leader>ns', ':set nospell<cr>')
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
--- vim.keymap.set({ 'n', 'v' }, 'k', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
--- vim.keymap.set({ 'n', 'v' }, 'l', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, 'k', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, 'l', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- resize buffer
 vim.keymap.set('n', '<leader><right>', '10<c-w>>')
@@ -47,8 +47,21 @@ vim.keymap.set('n', '<leader><s-l>', '<c-w><s-k>')
 vim.keymap.set({ 'i', 'v' }, 'kl', '<ESC>', { desc = 'esc insert or visual mode using k-l' })
 -- exit terminal mode using kl keystroke
 vim.keymap.set('t', 'kl', "<C-\\><C-n>", { desc = 'esc terminal mode using k-l' })
--- use bash
-vim.cmd("set shell=/bin/bash")
+
+local function check_platform()
+    local handle = io.popen("uname")
+    local result = handle:read("*a")
+    handle:close()
+
+    if result:find("Linux") then
+        vim.cmd("set shell=/bin/bash")
+    else
+        vim.cmd("set shell=powershell.exe")
+    end
+end
+
+check_platform()
+
 
 -- simple stuff
 vim.keymap.set("n", "K", "mzJ`z")

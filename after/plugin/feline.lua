@@ -49,7 +49,7 @@ local c = {
         hl = function()
             return {
                 fg = require("feline.providers.vi_mode").get_mode_color(),
-                -- bg = "surface",
+                bg = "surface",
                 style = "bold",
                 name = "NeovimModeHLColor",
             }
@@ -113,19 +113,19 @@ local c = {
     diagnostic_errors = {
         provider = "diagnostic_errors",
         hl = {
-            fg = "red",
+            fg = "rose",
         },
     },
     diagnostic_warnings = {
         provider = "diagnostic_warnings",
         hl = {
-            fg = "yellow",
+            fg = "gold",
         },
     },
     diagnostic_hints = {
         provider = "diagnostic_hints",
         hl = {
-            fg = "aqua",
+            fg = "iris",
         },
     },
     diagnostic_info = {
