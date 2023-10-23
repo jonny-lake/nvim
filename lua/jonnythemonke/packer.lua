@@ -109,4 +109,7 @@ return require('packer').startup(function(use)
   use 'mfussenegger/nvim-dap'
   use 'mfussenegger/nvim-jdtls'
 
+  -- templ
+  use("vrischmann/tree-sitter-templ")
+
 end)

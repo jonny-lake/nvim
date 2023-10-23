@@ -30,6 +30,42 @@ autocmd({"BufWritePre"}, {
     command = [[%s/\s\+$//e]],
 })
 
+vim.api.nvim_create_autocmd(
+  {
+    -- 'BufWritePre' event triggers just before a buffer is written to file.
+    "BufWritePre"
+  },
+  {
+    pattern = {"*.templ"},
+    callback = function()
+      -- Format the current buffer using Neovim's built-in LSP (Language Server Protocol).
+      vim.lsp.buf.format()
+    end,
+  }
+)
+
+-- Format current buffer using LSP.
+vim.api.nvim_create_autocmd(
+  {
+    -- 'BufWritePre' event triggers just before a buffer is written to file.
+    "BufWritePre"
+  },
+  {
+    pattern = {"*.templ"},
+    callback = function()
+      -- Format the current buffer using Neovim's built-in LSP (Language Server Protocol).
+      vim.lsp.buf.format()
+    end,
+  }
+)
+
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
+-- additional filetypes
+vim.filetype.add({
+ extension = {
+  templ = "templ",
+ },
+})

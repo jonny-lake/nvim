@@ -3,8 +3,11 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-  'tsserver',
   'rust_analyzer',
+  'templ',
+  'gopls',
+  'tailwindcss'
+
 })
 
 -- Fix Undefined global 'vim'
@@ -56,4 +59,18 @@ lsp.setup()
 
 vim.diagnostic.config({
     virtual_text = true
+})
+
+require("lspconfig").tailwindcss.setup({
+  filetypes = {
+    'templ',
+    'html',
+    'jsx',
+    'tsx'
+  },
+  init_options = {
+    userLanguages = {
+        templ = "html"
+    }
+  }
 })
