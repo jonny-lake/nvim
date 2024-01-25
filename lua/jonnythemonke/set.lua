@@ -43,6 +43,8 @@ vim.opt.termguicolors = true
 -- Set completeopt to have a better completion experience
 vim.opt.completeopt = 'menuone,noselect'
 
+vim.cmd("let g:copilot_filetypes = {'markdown': v:true,}")
+
 -- clipboard set to host
 -- vim.cmd('set clipboard+=unnamedplus')
 --
