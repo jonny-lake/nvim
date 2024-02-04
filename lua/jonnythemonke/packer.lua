@@ -3,9 +3,9 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim', tag = '0.1.5',
         -- or                            , branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
+        requires = { { 'nvim-lua/plenary.nvim' }, 'sharkdp/fd'}
     }
 
     use({
@@ -16,18 +16,18 @@ return require('packer').startup(function(use)
         end
     })
 
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    }
+    -- use {
+    --     "folke/which-key.nvim",
+    --     config = function()
+    --         vim.o.timeout = true
+    --         vim.o.timeoutlen = 300
+    --         require("which-key").setup {
+    --             -- your configuration comes here
+    --             -- or leave it empty to use the default settings
+    --             -- refer to the configuration section below
+    --         }
+    --     end
+    -- }
 
 
     -- use { "catppuccin/nvim", as = "catppuccin" } -- catppuccin theme
@@ -81,6 +81,7 @@ return require('packer').startup(function(use)
             { 'saadparwaiz1/cmp_luasnip' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-nvim-lua' },
+            { 'hrsh7th/cmp-cmdline' },
 
             -- Snippets
             { 'L3MON4D3/LuaSnip' },
@@ -122,5 +123,11 @@ return require('packer').startup(function(use)
 
     -- markdown preview
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
+    -- noice
+    use({'folke/noice.nvim', requires = {
+        "MunifTanjim/nui.nvim",
+        "rcarriga/nvim-notify"
+    }})
 
 end)

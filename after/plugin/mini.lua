@@ -41,6 +41,6 @@ require('mini.files').setup({
   },
 },
 
-vim.keymap.set('n', '<leader>fe', ':lua MiniFiles.open()<cr>')
+vim.keymap.set('n', '<leader>fe', ':lua MiniFiles.open()<cr>', { desc = 'Open file explorer'})
 
 )
