@@ -7,7 +7,7 @@ vim.keymap.set({ 'n', 'v' }, 'l', 'k', { desc = 'move left' })
 
 -- move to new window after creating
 vim.keymap.set('n', '<leader>nv', ':vs<cr> <c-w><right>', { desc = 'create new vertical window' })
-vim.keymap.set('n', '<leader>nh', ':sp<cr> <c-w><down>', { desc = 'create new horizontal window' })
+vim.keymap.set('n', '<leader>ns', ':sp<cr> <c-w><down>', { desc = 'create new horizontal window' })
 
 vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv", { desc = 'move line up' })
 vim.keymap.set("v", "L", ":m '<-2<CR>gv=gv", { desc = 'move line down' })
@@ -15,7 +15,7 @@ vim.keymap.set("v", "L", ":m '<-2<CR>gv=gv", { desc = 'move line down' })
 -- writing
 vim.g.spelllang = 'en_us'
 vim.keymap.set('n', '<leader>sp', ':set spell<cr>', { desc = 'enable spell check' })
-vim.keymap.set('n', '<leader>ns', ':set nospell<cr>', { desc = 'disable spell check' })
+vim.keymap.set('n', '<leader>spx', ':set nospell<cr>', { desc = 'disable spell check' })
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
